@@ -75,7 +75,7 @@ export default function Description() {
                         <h1>Meu currículo!</h1>
                         <div className="cicle">
                             <a
-                                href="https://drive.google.com/file/d/15zY3xHj9nhE3uaiNlSTSQ8_slmKK5OPp/view"
+                                href="https://drive.google.com/file/d/1na1jTXvwixQ6DvKto-m9MXWNqzAS1eHI/view?usp=drive_link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

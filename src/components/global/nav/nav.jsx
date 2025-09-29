@@ -41,7 +41,7 @@ const socialLinks = [
         ariaLabel: "Instagram",
     },
     {
-        href: "https://drive.google.com/file/d/15zY3xHj9nhE3uaiNlSTSQ8_slmKK5OPp/view",
+        href: "https://drive.google.com/file/d/1na1jTXvwixQ6DvKto-m9MXWNqzAS1eHI/view?usp=drive_link",
         iconClass: "fa-regular fa-file-lines",
         ariaLabel: "Currículo",
     }
