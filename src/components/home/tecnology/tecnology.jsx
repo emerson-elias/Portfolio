@@ -24,6 +24,10 @@ const technologies = [
         img: '/assets/icon-tec/react.png'
     },
     {
+        name: 'VUE',
+        img: '/assets/icon-tec/vue.png'
+    },
+    {
         name: 'JAVASCRIPT',
         img: '/assets/icon-tec/js.png'
     },
