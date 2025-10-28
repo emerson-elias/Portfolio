@@ -8,8 +8,8 @@ const sections = [
         title: "Quem eu Sou",
         content: (
             <>
-                Olá! meu nome é Emerson Elias, tenho 26 anos e
-                atualmente moro na cidade de Marabá-PA
+                Olá! meu nome é Emerson Elias, tenho 27 anos e
+                atualmente moro na cidade de São Paulo - SP
             </>
         )
     },
@@ -17,9 +17,9 @@ const sections = [
         title: "O que faço",
         content: (
             <>
-                Sou desenvolvedor front-end, mas estou atuando no
+                Sou desenvolvedor front-end, mas atuava no
                 <a href="https://www.grupolideronline.com.br/" target="_blank" rel="noopener noreferrer"> Grupo Líder </a>
-                como Analista de Suporte, neste cargo sou responsável por toda a parte de T.I da empresa
+                como Analista de Suporte, neste cargo era responsável por toda a parte de T.I da empresa
             </>
         )
     },
