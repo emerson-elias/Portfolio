@@ -1,5 +1,5 @@
 
-# Portifolio 🚀
+# Portfolio 🚀
 <p>Bem-vindo ao meu portfólio!
 Aqui você encontrará uma seleção dos meus trabalhos e habilidades como desenvolvedor front-end. Sinta-se à vontade para explorar e conhecer melhor o que faço. Espero que a visita seja inspiradora!</p>
 
