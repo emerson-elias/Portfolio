@@ -48,7 +48,7 @@ export default function Footer() {
 
                     <div className="midia">
 
-                        <a className="cv" href="https://drive.google.com/file/d/1na1jTXvwixQ6DvKto-m9MXWNqzAS1eHI/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                        <a className="cv" href="https://docs.google.com/document/d/1D3gWhBItiDfZF_oLZYlBEtVqMyBcrpjm42Z0rwLpZX8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
                             <i className="fa-regular fa-file-lines"></i>
                         </a>
 
