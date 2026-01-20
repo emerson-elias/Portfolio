@@ -1,11 +1,14 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import Loader from '../components/global/loader/loader'
 
 const AssetLoaderContext = createContext({
     allAssetsLoaded: false,
     imagesLoaded: false,
     fontsLoaded: false,
     gifsLoaded: false,
-    audioLoaded: false
+    audioLoaded: false,
+    transitionTo: () => {}
 })
 
 export const useAssetsLoaded = () => {
@@ -17,6 +20,12 @@ export const useAssetsLoaded = () => {
 }
 
 export const AssetLoaderProvider = ({ children, imgsUrls = [], fontFamilies = [], gifsUrls = [], audioUrls = [] }) => {
+    const navigate = useNavigate()
+    const location = useLocation()
+    const [showLoader, setShowLoader] = useState(true)
+    const [isExiting, setIsExiting] = useState(false)
+    const [isEntering, setIsEntering] = useState(false)
+
     const [assets, setAssets] = useState({
         allAssetsLoaded: false,
         imagesLoaded: false,
@@ -91,11 +100,41 @@ export const AssetLoaderProvider = ({ children, imgsUrls = [], fontFamilies = []
     useEffect(() => {
         if (assets.imagesLoaded && assets.fontsLoaded && assets.gifsLoaded && assets.audioLoaded) {
             setAssets(prev => ({ ...prev, allAssetsLoaded: true }))
+
+            // Inicia a animação de saída assim que tudo carregar
+            setIsExiting(true)
+            const timer = setTimeout(() => {
+                setShowLoader(false)
+            }, 1500) // Tempo para a animação de saída terminar (ajuste conforme seu CSS)
+            return () => clearTimeout(timer)
         }
     }, [assets.imagesLoaded, assets.fontsLoaded, assets.gifsLoaded, assets.audioLoaded])
 
+    // Função para transição de rota com animação do loader
+    const transitionTo = useCallback((path) => {
+        if (path === location.pathname + location.hash) return
+
+        setIsExiting(false)
+        setShowLoader(true)
+        setIsEntering(true)
+
+        // Tempo da animação de entrada antes de trocar a rota
+        setTimeout(() => {
+            navigate(path)
+            setIsEntering(false)
+            
+            // Inicia a saída do loader na nova rota
+            setIsExiting(true)
+            setTimeout(() => {
+                setShowLoader(false)
+                setIsExiting(false)
+            }, 1500) // Tempo da animação de saída
+        }, 1000) // Tempo da animação de entrada (ajuste conforme seu CSS)
+    }, [navigate, location])
+
     return (
-        <AssetLoaderContext.Provider value={assets}>
+        <AssetLoaderContext.Provider value={{ ...assets, transitionTo }}>
+            {showLoader && <Loader isExiting={isExiting} isEntering={isEntering} />}
             {children}
         </AssetLoaderContext.Provider>
     )

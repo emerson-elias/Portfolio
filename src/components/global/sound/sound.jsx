@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { useAssetsLoaded } from '../../../contexts/AssetLoaderProvider'
+import music from '/assets/music/sappheiros.mp3'
 
 import styles from './sound.module.scss'
-import music from '/assets/music/sappheiros.mp3'
 
 export default function Sound() {
     const musicRef = useRef(null)

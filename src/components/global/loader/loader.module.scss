@@ -18,8 +18,11 @@
     z-index: 9999;
 
     &.exit {
-        opacity: 0;
-        pointer-events: none;
+        animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    &.enter {
+        animation: fadeIn 0.5s ease-in forwards;
     }
 
     .cube {

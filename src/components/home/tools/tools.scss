@@ -10,18 +10,18 @@
     padding-bottom: 20vmax;
     overflow: hidden;
 
-    .tittle-svg{
+    .title-svg {
         @include mixins.align(relative, flex, end, end);
         width: inherit;
         height: auto;
 
-        .layer{
+        .layer {
             position: relative;
             width: auto;
             height: auto;
             margin-right: 10vmax;
 
-            svg{
+            svg {
                 position: relative;
                 width: 10vmax;
                 transform: rotate(180deg);
@@ -29,7 +29,7 @@
                 padding: 2vmax;
             }
 
-            h1{
+            h1 {
                 text-align: center;
                 font-size: 3vmax;
                 margin-top: 2vmax;
@@ -40,90 +40,76 @@
         }
     }
 
-    .wrapper-one, .wrapper-dwo {
+    .wrapper-one,
+    .wrapper-dwo {
         @include mixins.align(relative, flex, center, center);
         width: 110%;
-        height: 20vh; 
+        height: 20vh;
         border: 2px solid var.$Secundary_Color;
         border-left: none;
         border-right: none;
+        
+        // Correção para serrilhado em elementos rotacionados
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        outline: 1px solid transparent; // Truque para forçar antialiasing
 
-        @include responsive.screen_small{
+        @include responsive.screen_small {
             height: 80px;
         }
 
-        .itemLeft,
-        .itemRight {
-            position: absolute;
-            width: 600px;
-            height: auto;
-            text-align: center;
-            animation-timing-function: linear;
-            animation-duration: 60s;
-            animation-iteration-count: infinite;
+        // Container que se move
+        .track {
+            display: flex;
+            width: max-content; // Permite que o container cresça o quanto precisar
+            animation: scroll 60s linear infinite;
 
-            a {   
+            // Pausa a animação ao passar o mouse (opcional, mas profissional)
+            &:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        .item {
+            @include mixins.align(relative, flex, center, center);
+            flex-shrink: 0;
+            margin-right: 5vmax;
+
+            a {
                 text-wrap: nowrap;
                 text-decoration: none;
                 font-size: 5vmax;
                 letter-spacing: 3px;
                 font-family: var.$font_Secondary;
                 transition: var.$Transition_ease;
+                transform: translateZ(0); // Força aceleração de hardware no texto
 
                 @include responsive.screen_small {
                     font-size: 50px;
                 }
             }
         }
-
-        .itemLeft {
-            left: max(calc(600px * 7), 100%);
-            animation-name: scrollLeft;
-        }
-        .itemRight {
-            right: max(calc(600px * 7), calc(100% + 600px));
-            animation-name: scrollRight;
-        }
-        .item1 {
-            animation-delay: calc(60s / 8 * (8 - 1) * -1);
-        }
-        .item2 {
-            animation-delay: calc(60s / 8 * (8 - 2) * -1);
-        }
-        .item3 {
-            animation-delay: calc(60s / 8 * (8 - 3) * -1);
-        }
-        .item4 {
-            animation-delay: calc(60s / 8 * (8 - 4) * -1);
-        }
-        .item5 {
-            animation-delay: calc(60s / 8 * (8 - 5) * -1);
-        }
-        .item6 {
-            animation-delay: calc(60s / 8 * (8 - 6) * -1);
-        }
-        .item7 {
-            animation-delay: calc(60s / 8 * (8 - 7) * -1);
-        }
-        .item8 {
-            animation-delay: calc(60s / 8 * (8 - 8) * -1);
-        }
     }
 
-    .wrapper-one{
+    .wrapper-one {
         transform: rotate(5deg) translateX(-5%);
         background-color: var.$Secundary_Color;
 
-        a{
+        a {
             color: var.$gray_primary;
         }
     }
-    
-    .wrapper-dwo{
+
+    .wrapper-dwo {
         transform: rotate(-5deg) translateX(-5%);
         background-color: var.$gray_primary;
 
-        a{
+        // Inverte a direção da animação para a segunda linha
+        .track {
+            animation-direction: reverse;
+        }
+
+        a {
             color: var.$Secundary_Color;
         }
     }

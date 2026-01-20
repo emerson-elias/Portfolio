@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useAssetsLoaded } from "../../../contexts/AssetLoaderProvider"
-
-import Modal from "./modals/modal/modal"
-import ProjectVideo from "./projectVideo/projectVideo"
+import { useAssetsLoaded } from "../../../../contexts/AssetLoaderProvider"
+import Modal from "../modals/modal/modal"
+import ProjectVideo from "../projectVideo/projectVideo"
 
 import './project.scss'
 

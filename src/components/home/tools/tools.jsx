@@ -12,10 +12,13 @@ const tools = [
 ]
 
 export default function Tools() {
+    const marqueeTools = [...tools, ...tools, ...tools, ...tools];
+    const marqueeToolsReverse = [...tools].reverse().concat([...tools].reverse(), [...tools].reverse(), [...tools].reverse());
+
     return (
         <section className="tools-container">
-            
-            <div className="tittle-svg">
+
+            <div className="title-svg">
                 <div className="layer">
                     <h1>tools</h1>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
@@ -28,23 +31,27 @@ export default function Tools() {
             </div>
 
             <div className="wrapper-one">
-                {tools.map((tool, index) => (
-                    <div key={index} className={`itemLeft item${index + 1}`}>
-                        <a href={tool.url} target="_blank" rel="noopener noreferrer">
-                            {tool.name} 
-                        </a>
-                    </div>
-                ))}
+                <div className="track">
+                    {marqueeTools.map((tool, index) => (
+                        <div key={index} className="item">
+                            <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                                {tool.name}
+                            </a>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             <div className="wrapper-dwo">
-                {[...tools].reverse().map((tool, index) => (
-                    <div key={index} className={`itemRight item${index + 1}`}>
-                        <a href={tool.url} target="_blank" rel="noopener noreferrer">
-                            {tool.name} 
-                        </a>
-                    </div>
-                ))}
+                <div className="track">
+                    {marqueeToolsReverse.map((tool, index) => (
+                        <div key={index} className="item">
+                            <a href={tool.url} target="_blank" rel="noopener noreferrer">
+                                {tool.name}
+                            </a>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     )

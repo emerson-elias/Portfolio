@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAssetsLoaded } from "../contexts/AssetLoaderProvider"
-import { Database } from "../components/projects/data/data"
+import { Database } from "../data/data"
 
 import Banner from '../components/projects/banner/banner_project'
 import Loader from '../components/global/loader/loader'

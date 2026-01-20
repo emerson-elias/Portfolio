@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import gsap from 'gsap'
+import { useAssetsLoaded } from '../../../contexts/AssetLoaderProvider'
 
 import './nav.scss'
 
@@ -50,6 +51,7 @@ const socialLinks = [
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const location = useLocation()
+    const { transitionTo } = useAssetsLoaded()
 
     const ulRef = useRef(null)
     const linksRef = useRef([])
@@ -57,6 +59,18 @@ export default function NavBar() {
     const socialLinksRef = useRef([])
 
     const toggleMenu = () => setMenuOpen(prev => !prev)
+
+    const navigation = (e, path) => {
+        e.preventDefault()
+
+        // Se o menu estiver aberto, acelera o fechamento para evitar conflito visual com o loader
+        if (menuOpen && tlRef.current) {
+            tlRef.current.timeScale(3)
+        }
+
+        setMenuOpen(false)
+        transitionTo(path)
+    }
 
     useEffect(() => {
         const root = document.getElementById('root')
@@ -130,7 +144,7 @@ export default function NavBar() {
 
     useEffect(() => {
         if (menuOpen) {
-            tlRef.current?.play()
+            tlRef.current?.timeScale(1).play() // Reseta a velocidade para o normal ao abrir
         } else {
             tlRef.current?.reverse()
         }
@@ -140,7 +154,7 @@ export default function NavBar() {
         <header>
             <nav className="navbar">
                 <div className="active-bar">
-                    <Link to="/">
+                    <Link to="/" onClick={navigation}>
                         <span>emerson</span>
                         <span><i className="game-icons--polar-star"></i> moraes</span>
                     </Link>
@@ -156,9 +170,17 @@ export default function NavBar() {
                     {links.map((link, index) => (
                         <li key={index}>
                             {link.isAnchor ? (
-                                <a href={link.href} ref={el => linksRef.current[index] = el}>{link.label}</a>
+                                <a
+                                    href={link.href}
+                                    ref={el => linksRef.current[index] = el}
+                                    onClick={(e) => navigation(e, link.href)}
+                                >{link.label}</a>
                             ) : (
-                                <Link to={link.to} ref={el => linksRef.current[index] = el}>{link.label}</Link>
+                                <Link
+                                    to={link.to}
+                                    ref={el => linksRef.current[index] = el}
+                                    onClick={(e) => navigation(e, link.to)}
+                                >{link.label}</Link>
                             )}
                         </li>
                     ))}
