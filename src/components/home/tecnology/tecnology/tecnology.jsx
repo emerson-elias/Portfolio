@@ -6,77 +6,11 @@ import Word from '../word/word'
 
 import './tecnology.scss'
 
-const technologies = [
-    {
-        name: 'HTML',
-        img: '/assets/icon-tec/html.png'
-    },
-    {
-        name: 'CSS',
-        img: '/assets/icon-tec/css.png'
-    },
-    {
-        name: 'SASS',
-        img: '/assets/icon-tec/sass.png'
-    },
-    {
-        name: 'REACT',
-        img: '/assets/icon-tec/react.png'
-    },
-    {
-        name: 'VUE',
-        img: '/assets/icon-tec/vue.png'
-    },
-    {
-        name: 'JAVASCRIPT',
-        img: '/assets/icon-tec/js.png'
-    },
-    {
-        name: 'TYPESCRIPT',
-        img: '/assets/icon-tec/ts.png'
-    },
-    {
-        name: 'PHP',
-        img: '/assets/icon-tec/php.png'
-    },
-    {
-        name: 'GIT',
-        img: '/assets/icon-tec/github.png'
-    },
-    {
-        name: 'VERCEL',
-        img: '/assets/icon-tec/vercel.png'
-    },
-    {
-        name: 'FIGMA',
-        img: '/assets/icon-tec/figma.png'
-    },
-    {
-        name: 'SQL',
-        img: '/assets/icon-tec/sql-server.png'
-    },
-    {
-        name: 'JAVA',
-        img: '/assets/icon-tec/java.png'
-    },
-    {
-        name: 'TAILWIND',
-        img: '/assets/icon-tec/tailwind.png'
-    },
-    {
-        name: 'BOOTSTRAP',
-        img: '/assets/icon-tec/bootstrap.png'
-    },
-    {
-        name: 'MATERIALIZE',
-        img: '/assets/icon-tec/materialize.png'
-    }
-]
-
-export default function Tecnology() {
-
+export default function Tecnology({ data }) {
     const containerRefs = useRef([])
     const imgRefs = useRef([])
+
+    if (!data) return null
 
     useEffect(() => {
         const containers = containerRefs.current
@@ -137,7 +71,6 @@ export default function Tecnology() {
     return (
         <>
             <section className="tecnology-container" id="tecnologias">
-
                 <div className="row">
                     <div className="container-title">
 
@@ -152,7 +85,7 @@ export default function Tecnology() {
                     </div>
 
                     <div className="tecnologias">
-                        {technologies.map((tech, index) => (
+                        {data.map((tech, index) => (
                             <div
                                 key={index}
                                 className="layers"
@@ -169,7 +102,6 @@ export default function Tecnology() {
                         ))}
                     </div>
                 </div>
-
             </section>
 
             <Word />

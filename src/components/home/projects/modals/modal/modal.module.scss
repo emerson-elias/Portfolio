@@ -21,6 +21,7 @@
     }
 
     .row {
+        position: relative;
 
         .columnOne {
             position: relative;
@@ -38,36 +39,33 @@
                 z-index: -1;
 
                 @include responsive.screen_laptop {
-                    width: 300px;
-                    height: 200px;   
+                    width: 450px;
+                    height: 250px;
                 }
 
-                @include responsive.screen_small {
+                @include responsive.screen_tablet {
                     width: 220px;
-                    height: 150px;
+                    height: 130px;
                 }
             }
         }
 
         .columnTwo {
-            @include mixins.align(relative, flex, center, center);
+            @include mixins.align(relative, flex, start, center);
             flex-direction: column;
             width: 100vw;
-            height: 100vh;
+            height: 90vh;
             padding: 0 15vw;
-            margin-top: -25vh;
-
-            @include responsive.screen_large {
-                margin-top: -220px;
-            }
+            margin-top: -7vmax;
 
             @include responsive.screen_laptop {
-                margin-top: -10px;
+                height: auto;
+                margin-top: -100px;
             }
 
             @include responsive.screen_small {
                 height: auto;
-                padding: 0 35px;
+                padding: 0 25px;
                 margin-top: -180px;
             }
 
@@ -113,7 +111,7 @@
                     }
 
                     @include responsive.screen_small {
-                        flex-direction: column;
+                        gap: 15px;
                     }
 
                     span {
@@ -152,7 +150,6 @@
                 @include responsive.screen_laptop {
                     flex-direction: column;
                     justify-content: center;
-                    padding: 7vh 0;
                 }
 
                 .tecnology {
@@ -204,7 +201,6 @@
 
                     @include responsive.screen_laptop {
                         width: 100%;
-                        padding: 10vh 5px;
                     }
 
                     p {
@@ -235,7 +231,7 @@
                         }
 
                         @include responsive.screen_small {
-                            margin: 100px 0 0 0;
+                            margin: 70px 0;
                         }
 
                         .btn {

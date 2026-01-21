@@ -1,4 +1,4 @@
-export const Database = [
+export const database = [
     {
         id: 1,
         title: "Recanto Belle Vue",
@@ -22,7 +22,7 @@ export const Database = [
         link: "https://dashboard-gamma-tan.vercel.app/",
         link_github: "https://github.com/emerson-elias/Dashboard-Vue",
         tecnology: ["html", "css", "sass", "vue", "javascript", "aos scroll"],
-        bg_view: '#8a05be',
+        bg_view: '#701095',
         img_bg: '/assets/img/2.jpg',
     },
     {

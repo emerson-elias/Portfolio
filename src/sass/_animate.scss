@@ -267,3 +267,24 @@
         transform: translateX(-25%);
     }
 }
+
+/*==============================================================================================*/
+
+/* ANIMAÇÃO DOS BANNERS EM PROJECTS. UP E LEFT */
+
+@keyframes pan-x {
+    0% {
+        background-position: left;
+        background-size: 110% cover
+    }
+
+    50% {
+        background-position: right;
+        background-size: 100% cover
+    }
+
+    100% {
+        background-position: left;
+        background-size: 110% cover
+    }
+}
