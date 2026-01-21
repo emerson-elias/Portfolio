@@ -99,6 +99,11 @@
                     text-align: center;
                     font-family: var.$font_normal;
                     font-weight: 500;
+                    font-size: 2.1vmax;
+
+                    @include responsive.screen_laptop {
+                        font-size: 22px;
+                    }
 
                     @include responsive.screen_small {
                         margin: 30px 0 30px 0;
@@ -123,6 +128,11 @@
                     margin: 2vmax 0;
                     letter-spacing: 2px;
                     font-family: var.$font_Primary;
+                    font-size: 2.3vmax;
+
+                    @include responsive.screen_laptop {
+                        font-size: 25px;
+                    }
                 }
 
                 p {
@@ -185,7 +195,7 @@
                             font-family: var.$font_Primary;
                         }
 
-                        &:hover{
+                        &:hover {
                             color: var.$Secundary_Color;
                         }
                     }

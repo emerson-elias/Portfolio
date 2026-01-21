@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import gsap from 'gsap'
-import Word from './word/word'
+import Word from '../word/word'
 
 import './tecnology.scss'
 
@@ -143,7 +143,7 @@ export default function Tecnology() {
 
                         <div className="box">
                             <h1>skills</h1>
-                            <p>Minhas principais ferramentas de desenvolvimento</p>
+                            <p>Minhas principais tecnologias de desenvolvimento</p>
                             <Link to="/projetos">
                                 <button>meus projetos</button>
                             </Link>

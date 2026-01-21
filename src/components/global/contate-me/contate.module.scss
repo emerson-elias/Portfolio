@@ -7,11 +7,11 @@
     flex-direction: column;
     width: 100vw;
     padding: 0 5vw;
-    margin: 10vh 0 20vh 0;
+    margin: 10vmax 0;
     overflow: hidden;
 
     @include responsive.screen_small {
-        margin: 70px 0;
+        margin: 70px 0 0 0;
     }
 
     span {

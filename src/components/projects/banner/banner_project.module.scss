@@ -51,13 +51,13 @@
         pointer-events: none;
 
         @include responsive.screen_laptop {
-            width: 25vw;
-            top: 10vh;
+            width: 200px;
+            top: 10%;
         }
 
         @include responsive.screen_small {
-            width: 50vw;
-            left: 50vw;
+            width: 180px;
+            left: 50%;
         }
 
         svg {

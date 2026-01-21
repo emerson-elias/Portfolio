@@ -14,8 +14,7 @@ export default function Contate() {
                     <path d="M3.10162 3.10156L62.9999 62.9999" strokeLinecap="round" strokeLinejoin="round" stroke="#ffffffb9"></path>
                     <path d="M63 1.00001L63 63L0.999989 63" strokeLinecap="round" strokeLinejoin="round" stroke="#ffffffb9"></path>
                 </svg>
-            </div>
-            
+            </div>   
         </section>
     )
 }

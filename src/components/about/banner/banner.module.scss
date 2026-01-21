@@ -113,9 +113,22 @@
 
         svg {
             position: absolute;
+            width: 12vw;
             top: 0;
             left: 60%;
+            z-index: -1;
+            pointer-events: none;
+            color: var.$Color_White_B9;
             animation: girar_left 15s linear infinite;
+
+            @include responsive.screen_laptop {
+                width: 200px;
+            }
+
+            @include responsive.screen_small {
+                width: 180px;
+                left: 50%;
+            }
         }
     }
 }

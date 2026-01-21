@@ -8,13 +8,15 @@ export default function Footer() {
 
     const btnRef = useRef(null)
 
-    function EmailClick() {
+    function emailClick() {
         const email = 'emersonees707@gmail.com'
         const subject = 'Vamos trabalhar juntos :)'
         const body = 'Olá Emerson Elias.\n\nVi seus projetos no seu portifólio e gostaria de saber mais sobre suas habilidades, vamos trabalhar juntos?.\n\nAtenciosamente:\n---- Seu Nome ----'
         const mailtoLink = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body)
 
         window.location.href = mailtoLink
+
+        alert("Aguarde enquanto seu app de email inicia")
     }
 
     return (
@@ -26,8 +28,8 @@ export default function Footer() {
 
             <section className='row'>
 
-                <a href="#" className='btn-container'>
-                    <button className='btn-contact' ref={btnRef} onClick={EmailClick}>
+                <a href="" className='btn-container'>
+                    <button className='btn-contact' ref={btnRef} onClick={emailClick}>
                         entre em contato
                     </button>
                 </a>
@@ -37,7 +39,7 @@ export default function Footer() {
 
                     <div className='layer'>
                         <h1> ① escreva um e-mail</h1>
-                        <a onClick={EmailClick}>emersonees707@gmail.com</a>
+                        <a onClick={emailClick}>emersonees707@gmail.com</a>
                     </div>
 
                 </div>
