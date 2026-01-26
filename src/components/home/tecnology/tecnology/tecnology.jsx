@@ -93,7 +93,8 @@ export default function Tecnology({ data }) {
                             >
                                 <span>{tech.name}</span>
                                 <div
-                                    className={`box-img box-${tech.name.toLowerCase()}`}
+                                    className="box-img"
+                                    style={{ backgroundColor: tech.color }}
                                     ref={(el) => (imgRefs.current[index] = el)}
                                 >
                                     <img src={tech.img} alt={tech.name} />
