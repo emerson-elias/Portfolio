@@ -1,3 +1,4 @@
+import Word from '../word/word';
 import './tools.scss'
 
 const tools = [
@@ -17,6 +18,7 @@ export default function Tools() {
 
     return (
         <section className="tools-container">
+            <Word />
 
             <div className="title-svg">
                 <div className="layer">

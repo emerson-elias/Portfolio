@@ -23,13 +23,13 @@ export default function Footer() {
         <footer className='footer-container' id='contatos'>
 
             <section className='text-linear'>
-                <Linear text={'- entre em contato comigo'} size='20vmax'/>
+                <Linear text={'- entre em contato comigo'} size='20vmax' />
             </section>
 
             <section className='row'>
 
-                <a href="" className='btn-container'>
-                    <button className='btn-contact' ref={btnRef} onClick={emailClick}>
+                <a href="#" className='btn-container'>
+                    <button type='button' className='btn-contact' ref={btnRef} onClick={emailClick}>
                         entre em contato
                     </button>
                 </a>

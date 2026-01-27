@@ -8,7 +8,7 @@ const AssetLoaderContext = createContext({
     fontsLoaded: false,
     gifsLoaded: false,
     audioLoaded: false,
-    transitionTo: () => {}
+    transitionTo: () => { }
 })
 
 export const useAssetsLoaded = () => {
@@ -105,7 +105,7 @@ export const AssetLoaderProvider = ({ children, imgsUrls = [], fontFamilies = []
             setIsExiting(true)
             const timer = setTimeout(() => {
                 setShowLoader(false)
-            }, 1500) // Tempo para a animação de saída terminar (ajuste conforme seu CSS)
+            }, 500) // Tempo para a animação de saída terminar (ajuste conforme seu CSS)
             return () => clearTimeout(timer)
         }
     }, [assets.imagesLoaded, assets.fontsLoaded, assets.gifsLoaded, assets.audioLoaded])
@@ -122,13 +122,13 @@ export const AssetLoaderProvider = ({ children, imgsUrls = [], fontFamilies = []
         setTimeout(() => {
             navigate(path)
             setIsEntering(false)
-            
+
             // Inicia a saída do loader na nova rota
             setIsExiting(true)
             setTimeout(() => {
                 setShowLoader(false)
                 setIsExiting(false)
-            }, 1500) // Tempo da animação de saída
+            }, 1000) // Tempo da animação de saída
         }, 1000) // Tempo da animação de entrada (ajuste conforme seu CSS)
     }, [navigate, location])
 

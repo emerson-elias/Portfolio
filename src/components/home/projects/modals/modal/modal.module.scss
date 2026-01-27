@@ -203,6 +203,10 @@
                         width: 100%;
                     }
 
+                    @include responsive.screen_small {
+                        padding: 10vh 3px 0 3px;
+                    }
+
                     p {
                         font-size: 2vmax;
                         margin: 1vmax 0;

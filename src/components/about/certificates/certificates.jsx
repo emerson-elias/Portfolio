@@ -52,6 +52,8 @@ export default function Certificates() {
             const container = containers[index]
             const img = imgs[index]
 
+            container.style.zIndex = 100
+
             const rect = container.getBoundingClientRect()
             const x = e.clientX - rect.left
             const y = e.clientY - rect.top
@@ -69,7 +71,11 @@ export default function Certificates() {
         }
 
         const mouseLeave = (index) => {
+            const container = containers[index]
             const img = imgs[index]
+
+            container.style.zIndex = ""
+
             gsap.to(img, {
                 x: 0,
                 y: 0,

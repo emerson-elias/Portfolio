@@ -181,6 +181,10 @@
                     padding: 3vmax 3vmax;
                     transition: var.$Transition_ease;
 
+                    @include responsive.screen_small {
+                        padding: 30px 40px;
+                    }
+
                     h1,
                     p,
                     span {

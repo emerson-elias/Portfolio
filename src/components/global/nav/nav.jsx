@@ -84,7 +84,7 @@ export default function NavBar() {
         const onScroll = () => {
             const header = document.querySelector('header')
             if (header && root) {
-                header.classList.toggle('mobile', root.scrollTop > 100)
+                header.classList.toggle('mobile', root.scrollTop > 1)
             }
         }
 
